@@ -1,8 +1,9 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import User from "../models/user";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { check, validationResult } from "express-validator";
+import { verifyToken } from "../middleware/auth";
 
 const router = express.Router();
 
@@ -49,6 +50,11 @@ router.post("/login", [check("email", "email is required").notEmpty().isEmail(),
 		console.log(error);
 		res.status(500).json({ message: "Something went wrong" });
 	}
+});
+
+// validate token
+router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
+	res.status(200).send({ userId: req.userId });
 });
 
 export default router;
