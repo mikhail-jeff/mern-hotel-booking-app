@@ -24,7 +24,7 @@ app.use(
 	})
 );
 
-app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../../backend/dist")));
 
 // routes
 app.use("/api/auth", authRoutes);
