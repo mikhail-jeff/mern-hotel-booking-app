@@ -10,7 +10,6 @@ import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
 
 const app = express();
-const PORT = process.env.PORT || 7000;
 
 // db connection
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
