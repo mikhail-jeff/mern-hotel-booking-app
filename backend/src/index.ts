@@ -32,5 +32,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
 app.listen(7000, () => {
-	console.log(colors.cyan.italic.underline(`Server running on http://localhost:7000`));
+	console.log(colors.cyan.italic.underline(`Server running on localhost:7000`));
 });
