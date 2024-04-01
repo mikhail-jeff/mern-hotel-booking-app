@@ -1,33 +1,23 @@
-import mongoose, { Document, Model } from "mongoose";
+import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-interface UserType extends Document {
+export type UserType = {
 	_id: string;
 	email: string;
 	password: string;
 	firstName: string;
 	lastName: string;
-}
+};
 
-const userSchema = new mongoose.Schema<UserType>({
-	email: {
-		type: String,
-		required: true,
-		unique: true,
+const userSchema = new mongoose.Schema<UserType>(
+	{
+		email: { type: String, required: true, unique: true },
+		password: { type: String, required: true },
+		firstName: { type: String, required: true },
+		lastName: { type: String, required: true },
 	},
-	password: {
-		type: String,
-		required: true,
-	},
-	firstName: {
-		type: String,
-		required: true,
-	},
-	lastName: {
-		type: String,
-		required: true,
-	},
-});
+	{ timestamps: true }
+);
 
 // hashing password
 userSchema.pre("save", async function (next) {
@@ -38,6 +28,6 @@ userSchema.pre("save", async function (next) {
 	next();
 });
 
-const User: Model<UserType> = mongoose.model<UserType>("User", userSchema);
+const User = mongoose.model<UserType>("User", userSchema);
 
 export default User;

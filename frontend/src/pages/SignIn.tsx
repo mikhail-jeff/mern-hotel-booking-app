@@ -78,13 +78,13 @@ const SignIn = () => {
 					<Link
 						to={"/register"}
 						className="underline">
-						Sign-up here
+						Create an account
 					</Link>
 				</span>
 				<button
 					type="submit"
 					className="bg-blue-600 rounded-sm text-white p-2 font-bold hover:bg-blue-500 text-lg">
-					Login
+					Sign-in
 				</button>
 			</span>
 		</form>

@@ -40,7 +40,7 @@ router.post("/login", [check("email", "email is required").notEmpty().isEmail(),
 		res.cookie("auth_token", token, {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === "production",
-			maxAge: 86400000,
+			maxAge: 86400000, // 1 day in milliseconds
 		});
 
 		res.status(200).json({
@@ -52,7 +52,7 @@ router.post("/login", [check("email", "email is required").notEmpty().isEmail(),
 	}
 });
 
-//logout
+// logout
 router.post("/logout", (req: Request, res: Response) => {
 	res.cookie("auth_token", "", {
 		expires: new Date(0),
