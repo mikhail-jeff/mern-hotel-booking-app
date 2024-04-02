@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "iso-3166-1-alpha-2": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
+    "react-icons": "^5.0.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
+    "@types/iso-3166-1-alpha-2": "^1.0.2",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
