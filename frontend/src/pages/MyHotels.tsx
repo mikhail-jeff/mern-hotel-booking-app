@@ -70,7 +70,7 @@ const MyHotels = () => {
 							<h2 className="text-2xl font-bold">{hotel.name}</h2>
 							<MdDeleteForever
 								size={22}
-								className="cursor-pointer active:scale-90 duration-300"
+								className="cursor-pointer active:scale-90 duration-300 text-red-600 hover:text-red-500"
 								title="delete"
 								onClick={() => handleDeleteConfirmation(hotel._id)}
 							/>

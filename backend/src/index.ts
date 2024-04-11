@@ -10,6 +10,7 @@ import { v2 as cloudinary } from "cloudinary";
 import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
 import myHotelRoues from "./routes/my-hotels";
+import hotelRoutes from "./routes/hotels";
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, "../../backend/dist")));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoues);
+app.use("/api/hotels", hotelRoutes);
 
 app.listen(7000, () => {
 	console.log(colors.cyan.italic.underline(`Server running on localhost:7000`));

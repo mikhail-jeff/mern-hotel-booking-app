@@ -16,7 +16,11 @@ type AppContext = {
 // eslint-disable-next-line react-refresh/only-export-components
 const AppContext = createContext<AppContext | undefined>(undefined);
 
-export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+type AppContextProviderProps = {
+	children: React.ReactNode;
+};
+
+export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 	const [toast, setToast] = useState<ToastMessage | undefined>(undefined);
 
 	const { isError } = useQuery("validateToken", apiClient.validateToken, {
