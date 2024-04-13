@@ -7,7 +7,7 @@ type SearchContext = {
 	adultCount: number;
 	childCount: number;
 	hotelId: string;
-	saveSearchValues: (destination: string, checkIn: Date, checkOut: Date, adultCount: number, childCount: number, hotelId: string) => void;
+	saveSearchValues: (destination: string, checkIn: Date, checkOut: Date, adultCount: number, childCount: number, hotelId?: string) => void;
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
