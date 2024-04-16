@@ -25,6 +25,14 @@ const SearchBar = () => {
 		navigate("/search");
 	};
 
+	const handleClear = () => {
+		setDestination("");
+		setCheckIn(new Date());
+		setCheckOut(new Date());
+		setAdultCount(1);
+		setChildCount(0);
+	};
+
 	const minDate = new Date();
 	const maxDate = new Date();
 	maxDate.setFullYear(maxDate.getFullYear() + 1);
@@ -81,8 +89,6 @@ const SearchBar = () => {
 					endDate={checkOut}
 					minDate={minDate}
 					maxDate={maxDate}
-					isClearable
-					showTimeInput
 					placeholderText="Check-in Date"
 					className="min-w-full bg-white p-2 focus:outline-none rounded-sm"
 					wrapperClassName="min-w-full"
@@ -97,8 +103,6 @@ const SearchBar = () => {
 					endDate={checkOut}
 					minDate={minDate}
 					maxDate={maxDate}
-					isClearable
-					showTimeInput
 					placeholderText="Check-out Date"
 					className="min-w-full bg-white p-2 focus:outline-none rounded-sm"
 					wrapperClassName="min-w-full"
@@ -107,7 +111,11 @@ const SearchBar = () => {
 
 			<div className="flex gap-1">
 				<button className="w-2/3 bg-blue-600 text-white h-full p-2 font-bold text-md hover:bg-blue-500 rounded-sm">Search</button>
-				<button className="w-1/3 flex-1 bg-red-600 text-white p-2 font-bold text-md hover:bg-red-500 rounded-sm">Clear</button>
+				<button
+					onClick={handleClear}
+					className="w-1/3 flex-1 bg-red-600 text-white p-2 font-bold text-md hover:bg-red-500 rounded-sm">
+					Clear
+				</button>
 			</div>
 		</form>
 	);

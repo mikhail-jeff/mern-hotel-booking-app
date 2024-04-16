@@ -11,6 +11,7 @@ import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
 import myHotelRoues from "./routes/my-hotels";
 import hotelRoutes from "./routes/hotels";
+import bookingRoutes from "./routes/my-bookings";
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoues);
 app.use("/api/hotels", hotelRoutes);
+app.use("/api/my-bookings", bookingRoutes);
 
 app.listen(7000, () => {
 	console.log(colors.cyan.italic.underline(`Server running on localhost:7000`));
