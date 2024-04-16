@@ -9,12 +9,13 @@ const Home = () => {
 	});
 
 	const topRowHotels = hotels?.slice(0, 2) || [];
-	const bottomRowHotels = hotels?.slice(2) || [];
+	const middleRowHotels = hotels?.slice(2, 5) || [];
+	const lastRowHotels = hotels?.slice(5) || [];
 
 	return (
 		<div className="">
-			<h2 className="text-3xl font-bold">Latest Destinations</h2>
-			<p>Most recent destinations added by our hosts</p>
+			<h2 className="text-3xl font-bold">Discover Fresh Destinations</h2>
+			<p>Find out about the newest destinations recently added by our hosts</p>
 
 			<div className="grid gap-4">
 				<div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6">
@@ -27,7 +28,16 @@ const Home = () => {
 					))}
 				</div>
 				<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-					{bottomRowHotels.map((hotel, index) => (
+					{middleRowHotels.map((hotel, index) => (
+						<Suspense
+							key={index}
+							fallback={<div>Loading...</div>}>
+							<LastestDestinationCard hotel={hotel} />
+						</Suspense>
+					))}
+				</div>
+				<div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+					{lastRowHotels.map((hotel, index) => (
 						<Suspense
 							key={index}
 							fallback={<div>Loading...</div>}>
